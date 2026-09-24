@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080b18" />
+  <title>FocusFlow — To-do list</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div class="brand-mark" aria-hidden="true">✓</div>
+      <div>
+        <p class="eyebrow">PERSONAL WORKSPACE</p>
+        <h1>Focus<span>Flow</span></h1>
+      </div>
+      <div class="header-date" id="today"></div>
+    </header>
+
+    <section class="hero-card" aria-labelledby="welcome-title">
+      <div>
+        <p class="eyebrow">YOUR DAILY MOMENTUM</p>
+        <h2 id="welcome-title">Make today count.</h2>
+        <p class="hero-copy">Capture the important things and keep moving forward.</p>
+      </div>
+      <div class="progress-ring" id="progressRing" aria-label="Task completion progress">
+        <strong id="progressValue">0%</strong>
+        <span>complete</span>
+      </div>
+    </section>
+
+    <section class="workspace" aria-label="To-do workspace">
+      <div class="toolbar">
+        <div class="filters" role="tablist" aria-label="Task filters">
+          <button class="filter active" data-filter="all" role="tab" aria-selected="true">All <b id="allCount">0</b></button>
+          <button class="filter" data-filter="active" role="tab" aria-selected="false">Active <b id="activeCount">0</b></button>
+          <button class="filter" data-filter="completed" role="tab" aria-selected="false">Completed <b id="completedCount">0</b></button>
+        </div>
+        <button class="clear-button" id="clearCompleted">Clear completed</button>
+      </div>
+
+      <form class="task-form" id="taskForm">
+        <label class="sr-only" for="taskInput">New task</label>
+        <input id="taskInput" type="text" maxlength="140" autocomplete="off" placeholder="What needs to be done?" />
+        <button type="submit" aria-label="Add task">Add task <span>＋</span></button>
+      </form>
+
+      <div class="search-wrap">
+        <span aria-hidden="true">⌕</span>
+        <label class="sr-only" for="searchInput">Search tasks</label>
+        <input id="searchInput" type="search" placeholder="Search your tasks..." autocomplete="off" />
+      </div>
+
+      <div class="task-list" id="taskList" aria-live="polite"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <div class="empty-icon">✦</div>
+        <h3 id="emptyTitle">Nothing here yet</h3>
+        <p id="emptyCopy">Add your first task above and make it happen.</p>
+      </div>
+    </section>
+
+    <footer><span class="online-dot"></span> Saved locally in your browser</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
