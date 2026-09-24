@@ -3,65 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#080b18" />
-  <title>FocusFlow — To-do list</title>
+  <meta name="theme-color" content="#050815" />
+  <meta name="description" content="instaFlow SHIWA — Instagram growth assistant dashboard" />
+  <title>instaFlow SHIWA — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="app-shell">
-    <header class="app-header">
-      <div class="brand-mark" aria-hidden="true">✓</div>
-      <div>
-        <p class="eyebrow">PERSONAL WORKSPACE</p>
-        <h1>Focus<span>Flow</span></h1>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+      <div class="brand">
+        <div class="brand-mark">IF</div>
+        <div class="brand-copy"><strong>instaFlow</strong><em>SHIWA</em><span>Automate · Grow · Succeed</span></div>
+        <span class="crown" aria-hidden="true">♔</span>
       </div>
-      <div class="header-date" id="today"></div>
-    </header>
+      <nav class="nav-list">
+        <button class="nav-item active" data-page="Dashboard"><span>▥</span>Dashboard</button>
+        <button class="nav-item" data-page="Content"><span>➤</span>Content</button>
+        <button class="nav-item" data-page="Audience"><span>♧</span>Audience</button>
+        <button class="nav-item" data-page="Messages"><span>▱</span>Messages</button>
+        <button class="nav-item" data-page="Scheduler"><span>◷</span>Scheduler</button>
+        <button class="nav-item" data-page="Settings"><span>⚙</span>Settings</button>
+      </nav>
+      <button class="logout" id="logout"><span>↪</span>Logout</button>
+    </aside>
 
-    <section class="hero-card" aria-labelledby="welcome-title">
-      <div>
-        <p class="eyebrow">YOUR DAILY MOMENTUM</p>
-        <h2 id="welcome-title">Make today count.</h2>
-        <p class="hero-copy">Capture the important things and keep moving forward.</p>
-      </div>
-      <div class="progress-ring" id="progressRing" aria-label="Task completion progress">
-        <strong id="progressValue">0%</strong>
-        <span>complete</span>
-      </div>
-    </section>
+    <main class="main-content">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
+        <div class="top-actions"><button class="icon-btn" id="notifications" aria-label="Notifications">♧<b></b></button><button class="avatar" aria-label="Profile">S</button></div>
+      </header>
+      <section class="page-heading">
+        <p class="welcome">Welcome back,</p>
+        <h1>instaFlow <i>SHIWA</i> <span class="heading-crown">♔</span></h1>
+        <p>Your Instagram growth assistant</p>
+      </section>
 
-    <section class="workspace" aria-label="To-do workspace">
-      <div class="toolbar">
-        <div class="filters" role="tablist" aria-label="Task filters">
-          <button class="filter active" data-filter="all" role="tab" aria-selected="true">All <b id="allCount">0</b></button>
-          <button class="filter" data-filter="active" role="tab" aria-selected="false">Active <b id="activeCount">0</b></button>
-          <button class="filter" data-filter="completed" role="tab" aria-selected="false">Completed <b id="completedCount">0</b></button>
-        </div>
-        <button class="clear-button" id="clearCompleted">Clear completed</button>
-      </div>
+      <section class="stats-grid" aria-label="Account overview">
+        <article class="stat-card"><div class="stat-icon blue">♙</div><span>Total Followers</span><strong>12.4K</strong><b class="trend">↗ +12%</b></article>
+        <article class="stat-card"><div class="stat-icon purple">➤</div><span>Total Following</span><strong>1.2K</strong><b class="trend">↗ +5%</b></article>
+        <article class="stat-card"><div class="stat-icon pink">♡</div><span>Total Posts</span><strong>86</strong><b class="trend">↗ +18%</b></article>
+      </section>
 
-      <form class="task-form" id="taskForm">
-        <label class="sr-only" for="taskInput">New task</label>
-        <input id="taskInput" type="text" maxlength="140" autocomplete="off" placeholder="What needs to be done?" />
-        <button type="submit" aria-label="Add task">Add task <span>＋</span></button>
-      </form>
+      <section class="panel growth-panel">
+        <div class="panel-heading"><h2><span class="heading-icon">▥</span>Growth Overview</h2><button class="range-select" id="rangeSelect">Last 7 Days <span>⌄</span></button></div>
+        <div class="chart-wrap"><svg class="growth-chart" viewBox="0 0 760 220" role="img" aria-label="Follower growth chart"><defs><linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#d51b91" stop-opacity=".55"/><stop offset="1" stop-color="#3127c6" stop-opacity="0"/></linearGradient><linearGradient id="chartLine"><stop stop-color="#5b62ff"/><stop offset=".55" stop-color="#ba39e7"/><stop offset="1" stop-color="#ff51b5"/></linearGradient></defs><g class="grid-lines"><path d="M0 42H760M0 91H760M0 140H760M0 190H760"/></g><path class="area" d="M0 166 C38 143 54 145 77 145 S128 157 158 148 S202 122 232 107 S277 109 318 105 S366 77 405 60 S463 66 493 59 S542 70 574 56 S628 38 680 28 S730 15 760 4 V220 H0Z"/><path class="line" d="M0 166 C38 143 54 145 77 145 S128 157 158 148 S202 122 232 107 S277 109 318 105 S366 77 405 60 S463 66 493 59 S542 70 574 56 S628 38 680 28 S730 15 760 4"/><g class="points"><circle cx="0" cy="166"/><circle cx="55" cy="145"/><circle cx="158" cy="148"/><circle cx="232" cy="107"/><circle cx="318" cy="105"/><circle cx="405" cy="60"/><circle cx="493" cy="59"/><circle cx="760" cy="4"/></g></svg><div class="chart-labels"><span>Apr 16</span><span>Apr 17</span><span>Apr 18</span><span>Apr 19</span><span>Apr 20</span><span>Apr 21</span><span>Apr 22</span></div></div>
+      </section>
 
-      <div class="search-wrap">
-        <span aria-hidden="true">⌕</span>
-        <label class="sr-only" for="searchInput">Search tasks</label>
-        <input id="searchInput" type="search" placeholder="Search your tasks..." autocomplete="off" />
-      </div>
+      <section class="section-heading"><h2>Quick Actions</h2><button class="see-all">See All <span>›</span></button></section>
+      <section class="actions-grid"><button class="action-card post" data-action="Post"><span class="action-icon">➤</span><strong>Post</strong><small>Create new post</small></button><button class="action-card reels" data-action="Reels"><span class="action-icon">▣</span><strong>Reels</strong><small>Upload reel</small></button><button class="action-card schedule" data-action="Schedule"><span class="action-icon">◷</span><strong>Schedule</strong><small>Plan content</small></button><button class="action-card analytics" data-action="Analytics"><span class="action-icon">▥</span><strong>Analytics</strong><small>View insights</small></button></section>
 
-      <div class="task-list" id="taskList" aria-live="polite"></div>
-      <div class="empty-state" id="emptyState" hidden>
-        <div class="empty-icon">✦</div>
-        <h3 id="emptyTitle">Nothing here yet</h3>
-        <p id="emptyCopy">Add your first task above and make it happen.</p>
-      </div>
-    </section>
-
-    <footer><span class="online-dot"></span> Saved locally in your browser</footer>
-  </main>
+      <section class="panel activity-panel"><div class="panel-heading"><h2><span class="heading-icon">☷</span>Recent Activity</h2><button class="see-all">View All <span>›</span></button></div><div class="activity-list"><div class="activity"><span class="activity-icon pink">♡</span><div><strong>New follower</strong><p>@user123 started following you</p></div><time>2m ago</time><span class="arrow">›</span></div><div class="activity"><span class="activity-icon blue">➤</span><div><strong>Content published</strong><p>Your post is now live</p></div><time>15m ago</time><span class="arrow">›</span></div><div class="activity"><span class="activity-icon green">▥</span><div><strong>Analytics updated</strong><p>Your insights are ready</p></div><time>1h ago</time><span class="arrow">›</span></div></div></section>
+      <footer><span class="online-dot"></span><strong>System Online</strong><button id="connectionStatus">ϟ Instagram Connected <span>›</span></button></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
   <script src="app.js"></script>
 </body>
 </html>

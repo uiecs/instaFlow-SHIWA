@@ -1,0 +1,10 @@
+# Secrets and generated files
+.env
+.env.*
+!.env.example
+node_modules/
+.DS_Store
+.idea/
+.vscode/
+dist/
+build/

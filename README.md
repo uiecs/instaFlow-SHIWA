@@ -1,22 +1,27 @@
-# instaFlow SHIWA — To-do list
+# instaFlow SHIWA
 
-A lightweight, responsive to-do list with local storage persistence.
+A premium dark SaaS dashboard prototype for Instagram growth automation. The interface follows the supplied SHIWA reference: luminous blue/purple/pink gradients, glass panels, growth analytics, quick actions, activity feed, and connection status.
 
 ## Run locally
 
-Open `index.html` in a browser, or serve the directory with any static server:
+No build step is required. Open `index.html` directly, or serve the repository with:
 
 ```bash
 python3 -m http.server 8080
 ```
 
-Then visit http://localhost:8080.
+Then visit `http://localhost:8080`.
 
-## Features
+## Current v1.0 slice
 
-- Add, complete, edit, and delete tasks
-- Filter by all, active, and completed
-- Search tasks
-- Clear completed tasks
-- Local storage persistence
-- Responsive dark neon UI
+- Responsive dashboard matching the supplied product direction
+- Sidebar navigation with mobile drawer behavior
+- Followers, following, and posts KPI cards
+- SVG growth overview chart
+- Post, Reels, Schedule, and Analytics quick-action cards
+- Recent activity feed and Instagram connection status
+- Accessible labels, responsive breakpoints, and lightweight interaction toasts
+
+## Product roadmap
+
+The static dashboard is intentionally dependency-free so it can be deployed immediately. Production integrations should be added behind a server API: Meta OAuth/token management, Instagram Graph API publishing, PostgreSQL persistence, Redis/Celery scheduling, JWT authentication, and an AI service. Never expose Meta or AI secrets in browser code.
